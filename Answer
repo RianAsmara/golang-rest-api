@@ -1,0 +1,17 @@
+Coding
+
+A. Duplicate Code, to prevent is make the duplicate code into shared function to reduce repetitive and improve maintainability
+
+B. Design pattern that aims to improve code modularity, flexibility, and testability by separating the creation of objects from their use. And benefits are, improve modularity, enchanced manntainability
+
+Rest API
+
+A. POST mostly using for creating new record, dont used POST to retrieve data, use GET
+
+B. PUT used for updating existing record, dont used PUT to create new record, use POST
+
+c. GET is used to list/show created record, dont use GET to modify or create record, use POST and PUT
+
+Basic Coding
+
+Github 

@@ -1,0 +1,528 @@
+{
+	"info": {
+		"_postman_id": "076e1513-ca42-4c96-ae6c-d14238c1573a",
+		"name": "Kulina",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20332367"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Rian\",\n    \"email\": \"rputra711@gmail.com\",\n    \"password\": \"secret123\",\n    \"full_address\": \"Perumahan GM 2 Blok DE No 24\",\n    \"longitude\": \"-8.621483355960248\",\n    \"latitude\": \"116.12134481797493\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User input the address",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"full_address\": \"Perumahan GM 2 Blok DE No 24\",\n    \"longitude\": \"-8.621483355960248\",\n    \"latitude\": \"116.12134481797493\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/:id/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								":id",
+								"update"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User buy product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_id\": \"1\",\n    \"qty\": \"1\",\n    \"payment_status\": \"SUBS\" // SUB, ONETIME\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/buy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"buy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User pay the bill",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"payment_status\": \"PAID\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/:order-id/pay",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								":order-id",
+								"pay"
+							],
+							"variable": [
+								{
+									"key": "order-id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User skip the delivery due to certain reasons",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"delivered_status\": \"PENDING\", // PENDING, SUCCESS, REJECTED \n    \"notes\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/:order-id/deliver",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								":order-id",
+								"deliver"
+							],
+							"variable": [
+								{
+									"key": "order-id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User cancel the order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"delivered_status\": \"PENDING\", // PENDING, SUCCESS, REJECTED \n    \"notes\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/:order-id/cancel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								":order-id",
+								"cancel"
+							],
+							"variable": [
+								{
+									"key": "order-id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Supplier",
+			"item": [
+				{
+					"name": "Supplier register as seller",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Supplier 1\",\n    \"email\": \"rputra712@gmail.com\",\n    \"password\": \"secret123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/supplier/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"supplier",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Supplier create the store and complete the address",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"full_address\": \"Test alamat supplier\",\n    \"latitude\": \"-8.621483355960248\",\n    \"longitude\": \"116.12134481797493\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/supplier/:supplier-id/store/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"supplier",
+								":supplier-id",
+								"store",
+								"create"
+							],
+							"variable": [
+								{
+									"key": "supplier-id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Supplier create products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"product_id\": \"1\",\n   \"qty\": \"3\",\n   \"amount\": \"1000\",\n   \"purchased_type\": \"DAILY\", // DAILY, ONETIME\n   \"selling_area\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/supplier/:supplier-id/product/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"supplier",
+								":supplier-id",
+								"product",
+								"create"
+							],
+							"variable": [
+								{
+									"key": "supplier-id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Supplier determine the price of each product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n   \"amount\": \"1000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/supplier/:supplier-id/product/:product-id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"supplier",
+								":supplier-id",
+								"product",
+								":product-id"
+							],
+							"variable": [
+								{
+									"key": "supplier-id",
+									"value": ""
+								},
+								{
+									"key": "product-id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Supplier determine the selling area",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n   \"selling_area\": \"1000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/supplier/:supplier-id/product/:product-id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"supplier",
+								":supplier-id",
+								"product",
+								":product-id"
+							],
+							"variable": [
+								{
+									"key": "supplier-id",
+									"value": ""
+								},
+								{
+									"key": "product-id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Algo",
+			"item": [
+				{
+					"name": "Sock Merchant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "arr",
+									"value": "10 20 20 10 10 30 50 10 20",
+									"type": "text"
+								},
+								{
+									"key": "n",
+									"value": "9",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/algorithm/sock-merchant",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"algorithm",
+								"sock-merchant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Counting Valleys",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "steps",
+									"value": "8",
+									"type": "text"
+								},
+								{
+									"key": "path",
+									"value": "U D D D U D U U",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/algorithm/counting-valleys",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"algorithm",
+								"counting-valleys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Process Number",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/algorithm/process-number?number=1345679",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"algorithm",
+								"process-number"
+							],
+							"query": [
+								{
+									"key": "number",
+									"value": "1345679"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Count Lamps",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/algorithm/count-lamps",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"algorithm",
+								"count-lamps"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
